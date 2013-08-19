@@ -101,6 +101,14 @@ module HandyFeatureHelpers
       expect(page).to have_no_content(text)
     end
 
+    def table_has_content?(text)
+      within(table) { has_content?(text) }
+    end
+
+    def table_has_no_content?(text)
+      within(table) { has_content?(text) }
+    end
+
     def ensure_delete_is_working
       tr_count = size_of table_rows
       within(table) { click delete_link }
